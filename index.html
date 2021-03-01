@@ -7,18 +7,6 @@
   </head>
   <body style="text-align: center">
     <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #231F20"></canvas>
- <script>  
-   XMLHttpRequest.prototype.originalOpen = XMLHttpRequest.prototype.open;  
-   var newOpen = function(_, url) {  
-     var original = this.originalOpen.apply(this, arguments);  
-     if (url.indexOf('http://scoutmiller.net:8889') === 0) {  
-       this.withCredentials = true;  
-     }  
-  
-     return original;  
-   }  
-   XMLHttpRequest.prototype.open = newOpen;  
- </script>
     <script src="Build/LanguageGame.loader.js"></script>
     <script>
       createUnityInstance(document.querySelector("#unity-canvas"), {
